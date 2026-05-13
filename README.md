@@ -15,8 +15,7 @@ This repository evaluates Joint Embedding Predictive Architectures (JEPA) and to
 ## Repository Structure
 
 .
-├── ARNABI_DUTTA_GSoC_2026_Task.ipynb          # EDA, inference examples, and metric visualization
-├── ARNABI_DUTTA_GSoC_2026_Task_full_code.ipynb # Consolidated codebase for quick review
+├── Visualization.ipynb          # EDA, inference examples, and metric visualization
 ├── check.py                                   # Data and model verification
 ├── data/
 │   ├── dataset.py                             # Sequence formatting and batching
@@ -33,12 +32,6 @@ This repository evaluates Joint Embedding Predictive Architectures (JEPA) and to
 │   └── trainer.py                             # Training loop, checkpointing, and W&B logging
 └── train.sh                                   # End-to-end execution bash script
 ```
-
-## Pre-Trained Model Weights
-
-[Download Best Model Weights (.pt) Here](insert_link_here)
-
-To evaluate locally, download to the `logs/` directory and run `inference/evaluate.py` using the `--wt_path` argument.
 
 
 ## Data Pipeline & Tokenization
