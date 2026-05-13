@@ -1,11 +1,12 @@
-# SYMBA: LLM-JEPA for Feynman Squared Amplitudes [Project](https://ml4sci.org/gsoc/2026/proposal_SYMBA5.html)
-
+# LLM-JEPA for Feynman Squared Amplitudes
+### Description
+One of the most important physical quantities in particle physics is the cross section, or a probability that a particular process takes place in the interaction of elementary particles. Its measure provides a testable link between theory and experiment. It is obtained theoretically mainly by calculating the squared amplitude. This project will explore language model joint embedding predictive architectures for calculation of squared amplitudes.
+Computing squared amplitudes of feynman diagrams from amplitudes is an O(N^2) problem in high energy physics. To reduce the complexity of the problem solving, we instead attempt to map a amplitudes to a simplified form of squared amplitudes, dramatically decreasing the computation time.
 **Contributor:** Arnabi Dutta
 
 [JUPYTER NOTEBOOK](https://github.com/ArnabiDutta/GSoC_2026_Test_LM-JEPA/blob/main/ARNABI_DUTTA_GSoC_2026_Task.ipynb)
 
 **Prerequisite Test:**
-I have completed Tasks for Symbolic AI Projects GSoC 2026 Common Task 1.2, Specific Test 2.5.
 
 This repository evaluates Joint Embedding Predictive Architectures (JEPA) and tokenization strategies for mapping high-energy physics amplitudes to their squared amplitudes (A → |A|^2). We experiment structural representations (Infix vs. Prefix notation) and evaluates the impact of physics-informed augmentations.
 
@@ -40,7 +41,7 @@ This repository evaluates Joint Embedding Predictive Architectures (JEPA) and to
 To evaluate locally, download to the `logs/` directory and run `inference/evaluate.py` using the `--wt_path` argument.
 
 
-## Task 1.2: Data Pipeline & Tokenization
+## Data Pipeline & Tokenization
 
 Provided dataset was limited for training a good transformer. To resolve this, I exploited Feynman diagram Permutation Symmetry. By extracting and locking kinematic variables (s_12, m_e, p_3), I applied seeded random shuffles to generic indices (`%gam_115` → `%gam_002`). I yielded a 15x dataset expansion without breaking physical topologies. A strict 80/10/10 split is enforced before augmentation to guarantee zero data leakage.
 
@@ -57,7 +58,7 @@ The tokens are then processed through a Shunting-Yard algorithm. This acts as a 
 
 
 
-## Test 2.5: Architecture & Training
+## Architecture & Training
 
 The model is a Decoder-Only causal language model utilizing PyTorch's `nn.TransformerEncoder` with a strictly causal `torch.triu` mask, avoiding the cross-attention overhead of standard seq2seq setups.
 
